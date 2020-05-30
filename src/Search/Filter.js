@@ -14,6 +14,8 @@ class Filters extends React.Component {
           <label for="book-type"> Book Type: </label>
           <select id="book-type">
             <option value="no-filter">no filter</option>
+            <option value="ebook"> ebook </option>
+            <option value="pdf"> pdf </option>
           </select>
         </form>
       </div>
