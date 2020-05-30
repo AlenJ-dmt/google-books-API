@@ -11,6 +11,7 @@ class App extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
     this.state = {
       bookSearch: '',
+      bookResults: []
     }
   }
 
@@ -31,7 +32,9 @@ class App extends React.Component {
         }
         throw new Error(response.statusText)
     })
-    .then(responseJson => console.log(responseJson))
+    .then(responseJson => this.setState({
+      bookResults: responseJson
+    }))
     .catch(err => {
         return err.message;
     })
@@ -43,7 +46,7 @@ class App extends React.Component {
         <Header />
         <Search handleSubmit={this.handleSubmit}/>
         <Filters />
-        <ListResult />
+        <ListResult bookResults={this.state.bookResults} />
       </div>
     );
   }
