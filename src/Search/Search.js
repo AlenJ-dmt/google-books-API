@@ -8,6 +8,7 @@ class Search extends React.Component{
 
     handleInput(event){
         this.setState({userInput: event.target.value})
+        
     }
 
     // handleSubmit(event){

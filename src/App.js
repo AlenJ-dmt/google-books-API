@@ -6,18 +6,25 @@ import Filters from './Search/Filter'
 import ListResult from './ListResult/ListResult'
 
 class App extends React.Component {
-  state = {
-    bookSearch: '',
+  constructor(props){
+    super(props)
+    this.handleSubmit = this.handleSubmit.bind(this)
+    this.state = {
+      bookSearch: '',
+    }
   }
+
    APIKey ='AIzaSyDJ1UgbUFZnOmi9c2lfxeYhVzBm59YJW7k'
-   baseUrl = 'https://www.googleapis.com/books/v1/volumes?'
+   baseUrl = 'https://www.googleapis.com/books/v1/volumes?q='
+
    handleSubmit(event, userInput){
-    
+    console.log(event, userInput);
     event.preventDefault();
+
     this.setState({
       bookSearch: userInput,
     })
-    fetch(this.baseUrl, this.state.bookSearch)
+    fetch(this.baseUrl + userInput)
     .then(response => {
         if(response.ok){
             return response.json();
