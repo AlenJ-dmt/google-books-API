@@ -1,25 +1,37 @@
-import React from 'react';
-import Result from './Result';
+import React from "react";
+import Result from "./Result";
 
 class ListResult extends React.Component {
+  //   bookList = this.props.bookResults.map((book) => (
+  //     <Result
+  //       title={book.volumeInfo.title}
+  //       author={book.volumeInfo.authors[0]}
+  //       description={book.volumeInfo.description}
+  //     />
+  //   ));
 
-    bookList = this.props.bookResults.map(book => console.log(book))
-         
-    render() {
-        console.log(this.props.bookResults.items)
-        return(
-            //list results here
-            <div>
-                <h2>results</h2>
-                
-            </div>
-        )
-    }
+  render() {
+    return (
+      //list results here
+      <div>
+        <h2>results</h2>
+        {this.props.bookResults.map((book, index) => (
+          <Result
+            key={index}
+            title={book.volumeInfo.title}
+            author={book.volumeInfo.authors[0]}
+            description={book.volumeInfo.description}
+            imeSrc={book.volumeInfo.imageLinks.smallThumbnail}
+          />
+        ))}
+      </div>
+    );
+  }
 
-    static defaultProps = {
-        bookResults : {
-            items: []
-        }
-    }
+  static defaultProps = {
+    bookResults: {
+      items: [],
+    },
+  };
 }
 export default ListResult;

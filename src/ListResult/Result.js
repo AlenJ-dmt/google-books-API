@@ -1,20 +1,14 @@
-import React from 'react'
+import React from "react";
 
-class Result extends React.Component{
-
-    
-
-    render(){
-        
-        return(
-            <div>
-                <h2>{this.props.title}</h2>
-                <h3>{this.props.author}</h3>
-                <p>{this.props.price}</p>
-                <p>{this.props.description}</p>
-                
-            </div>
-        )
-    }
+function Result(props) {
+  return (
+    <div>
+      <h2>{props.title}</h2>
+      <img src={props.imeSrc} />
+      <h3>{props.author}</h3>
+      {/* <p>{this.props.price}</p> */}
+      <p>{props.description}</p>
+    </div>
+  );
 }
 export default Result;
